@@ -1,0 +1,8 @@
+.mob {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    padding: 0px;
+    padding-right: 15px;
+    margin: 0px;
+}
