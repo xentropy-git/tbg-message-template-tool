@@ -1,7 +1,12 @@
 function possessiveName(name) {
   if (!name) return "";
-  if (name[name.length] === "s") name = name + "'";
-  else name = name + "'s";
+
+  if (name[name.length] === "s") {
+    name = name + "'";
+  } else {
+    name = name + "'s";
+  }
+
   return name;
 }
 
