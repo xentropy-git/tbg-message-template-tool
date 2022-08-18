@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import "./App.css";
 import { Messages } from "./Messages";
 import Mob from "./Mob";
@@ -40,39 +42,41 @@ function App() {
   }, [messages, actor, subject]);
 
   return (
-    <div className="App">
+    <>
       <header className="App-header">
         <h1>Xentropy's Message Template Tool</h1>
       </header>
 
-      <main>
-        <div className="main-div">
-          <Table actor={actor} subject={subject} />
+      <Container>
+        <Table actor={actor} subject={subject} />
 
-          <Container className="mobs">
+        <Row>
+          <Col md>
             <Mob title="Actor" state={actor} onChange={setActor} />
+          </Col>
+          <Col md>
             <Mob title="Subject" state={subject} onChange={setSubject} />
-          </Container>
+          </Col>
+        </Row>
 
-          <Messages messages={messages} onChange={setMessages} />
+        <Messages messages={messages} onChange={setMessages} />
+      </Container>
 
-          <div className="output-container">
-            <div className="output">
-              <span className="output-pov">Actor sees:</span>
-              {parsed.actor}
-            </div>
-            <div className="output">
-              <span className="output-pov">Subject sees:</span>
-              {parsed.subject}
-            </div>
-            <div className="output">
-              <span className="output-pov">Room sees:</span>
-              {parsed.room}
-            </div>
-          </div>
+      <Container className="output-container">
+        <div className="output">
+          <span className="output-pov">Actor sees:</span>
+          {parsed.actor}
         </div>
-      </main>
-    </div>
+        <div className="output">
+          <span className="output-pov">Subject sees:</span>
+          {parsed.subject}
+        </div>
+        <div className="output">
+          <span className="output-pov">Room sees:</span>
+          {parsed.room}
+        </div>
+      </Container>
+    </>
   );
 }
 /*
