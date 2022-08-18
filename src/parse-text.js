@@ -1,4 +1,4 @@
-function possessiveName(name) {
+export function possessiveName(name) {
   if (!name) return "";
 
   if (name[name.length] === "s") {
@@ -10,7 +10,7 @@ function possessiveName(name) {
   return name;
 }
 
-function genderPossessive(gender) {
+export function genderPossessive(gender) {
   switch (gender) {
     case "he":
       return "his";
@@ -27,7 +27,7 @@ function genderPossessive(gender) {
   }
 }
 
-function genderObject(gender) {
+export function genderObject(gender) {
   switch (gender) {
     case "he":
       return "him";
@@ -44,7 +44,7 @@ function genderObject(gender) {
   }
 }
 
-function genderSubject(gender) {
+export function genderSubject(gender) {
   switch (gender) {
     case "he":
       return "he";
@@ -61,7 +61,7 @@ function genderSubject(gender) {
   }
 }
 
-function genderPossessivePronoun(gender) {
+export function genderPossessivePronoun(gender) {
   switch (gender) {
     case "he":
       return "his";
@@ -78,7 +78,7 @@ function genderPossessivePronoun(gender) {
   }
 }
 
-function genderReflexive(gender) {
+export function genderReflexive(gender) {
   switch (gender) {
     case "he":
       return "himself";

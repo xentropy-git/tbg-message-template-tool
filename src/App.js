@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Mob from "./Mob";
-import "./App.css";
-import InputGroup from "react-bootstrap/InputGroup";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 import Table from "react-bootstrap/Table";
-import { parseText } from "./parseText";
+import "./App.css";
+import Mob from "./Mob";
+import {
+  genderObject,
+  genderPossessivePronoun,
+  genderReflexive,
+  genderSubject,
+  parseText,
+  possessiveName,
+} from "./parse-text";
 
 function parseMessages(actorState, subjectState, messages) {
   return {
