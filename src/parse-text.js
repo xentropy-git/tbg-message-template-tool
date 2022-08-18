@@ -90,6 +90,14 @@ function genderReflexive(gender) {
   }
 }
 
+/** @typedef {{ name: string; gender: string; object: string}} ObjectState */
+
+/**
+ * @param {ObjectState} actorState
+ * @param {ObjectState} subjectState
+ * @param {string} message
+ * @returns {string} formatted message
+ */
 export function parseText(actorState, subjectState, message) {
   const matchText = {
     "%a%": actorState.name,
@@ -109,8 +117,9 @@ export function parseText(actorState, subjectState, message) {
     "%s-himself%": genderReflexive(subjectState.gender),
     "%s-obj%": subjectState.object,
   };
-  let re = new RegExp(Object.keys(matchText).join("|"), "g");
 
-  message = message.replace(re, (match) => matchText[match]);
-  return message[0].toUpperCase() + message.substring(1);
+  const re = new RegExp(Object.keys(matchText).join("|"), "g");
+  const msg = message.replace(re, (match) => matchText[match]);
+
+  return msg[0].toUpperCase() + msg.substring(1);
 }
