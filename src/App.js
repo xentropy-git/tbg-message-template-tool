@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import "./App.css";
+import { Messages } from "./Messages";
 import Mob from "./Mob";
 import { parseText } from "./parse-text";
 import Table from "./Table";
@@ -55,46 +54,7 @@ function App() {
             <Mob title="Subject" state={subject} onChange={setSubject} />
           </Container>
 
-          <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1">Actor's Message</InputGroup.Text>
-            <Form.Control
-              aria-label="name"
-              aria-describedby="basic-addon1"
-              placeholder="You stab %s% with your %a-obj%."
-              onChange={(event) => {
-                setMessages({ ...messages, actor: event.target.value });
-              }}
-            />
-          </InputGroup>
-
-          <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1">
-              Subject's Message
-            </InputGroup.Text>
-            <Form.Control
-              aria-label="name"
-              aria-describedby="basic-addon1"
-              placeholder="%a% stabs you with %a-his% %a-obj%."
-              onChange={(event) => {
-                setMessages({
-                  ...messages,
-                  subject: event.target.value,
-                });
-              }}
-            />
-          </InputGroup>
-
-          <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1">Room Message</InputGroup.Text>
-            <Form.Control
-              aria-label="name"
-              aria-describedby="basic-addon1"
-              placeholder="%a% stabs %s% with %a-his% %a-obj%."
-              onChange={(event) => {
-                setMessages({ ...messages, room: event.target.value });
-              }}
-            />
-          </InputGroup>
+          <Messages messages={messages} onChange={setMessages} />
 
           <div className="output-container">
             <div className="output">
