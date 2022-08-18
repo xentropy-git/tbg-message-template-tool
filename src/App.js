@@ -50,12 +50,8 @@ function App() {
       </header>
       <main>
         <div className="main-div">
-          <div>
-            <TemplateTable
-              actorState={actorState}
-              subjectState={subjectState}
-            />
-          </div>
+          <TemplateTable actorState={actorState} subjectState={subjectState} />
+
           <Container className="mobs">
             <Mob
               title="Actor"
