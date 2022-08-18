@@ -7,42 +7,37 @@ import Mob from "./Mob";
 import { parseText } from "./parse-text";
 import Table from "./Table";
 
-function parseMessages(actorState, subjectState, messages) {
-  return {
-    actorMessage: parseText(actorState, subjectState, messages.actorMessage),
-    subjectMessage: parseText(
-      actorState,
-      subjectState,
-      messages.subjectMessage
-    ),
-    roomMessage: parseText(actorState, subjectState, messages.roomMessage),
-  };
-}
-
 function App() {
   const [actor, setActor] = useState({
     name: "Leeroy Jenkins",
     gender: "Male",
     object: "short sword",
   });
+
   const [subject, setSubject] = useState({
     name: "the goblin",
     gender: "Female",
     object: "shield",
   });
+
   const [messages, setMessages] = useState({
-    actorMessage: "You stab %s% with your %a-obj%.",
-    subjectMessage: "%a% stabs you with %a-his% %a-obj%.",
-    roomMessage: "%a% stabs %s% with %a-his% %a-obj%.",
+    actor: "You stab %s% with your %a-obj%.",
+    subject: "%a% stabs you with %a-his% %a-obj%.",
+    room: "%a% stabs %s% with %a-his% %a-obj%.",
   });
-  const [parsedMessages, setParsedMessages] = useState({
-    actorMessage: " ",
-    subjectMessage: "",
-    roomMessage: " ",
+
+  const [parsed, setParsed] = useState({
+    actor: " ",
+    subject: "",
+    room: " ",
   });
 
   useEffect(() => {
-    setParsedMessages(parseMessages(actor, subject, messages));
+    setParsed({
+      actor: parseText(actor, subject, messages.actor),
+      subject: parseText(actor, subject, messages.subject),
+      room: parseText(actor, subject, messages.room),
+    });
   }, [messages, actor, subject]);
 
   return (
@@ -50,6 +45,7 @@ function App() {
       <header className="App-header">
         <h1>Xentropy's Message Template Tool</h1>
       </header>
+
       <main>
         <div className="main-div">
           <Table actor={actor} subject={subject} />
@@ -66,10 +62,11 @@ function App() {
               aria-describedby="basic-addon1"
               placeholder="You stab %s% with your %a-obj%."
               onChange={(event) => {
-                setMessages({ ...messages, actorMessage: event.target.value });
+                setMessages({ ...messages, actor: event.target.value });
               }}
             />
           </InputGroup>
+
           <InputGroup className="mb-3">
             <InputGroup.Text id="basic-addon1">
               Subject's Message
@@ -81,11 +78,12 @@ function App() {
               onChange={(event) => {
                 setMessages({
                   ...messages,
-                  subjectMessage: event.target.value,
+                  subject: event.target.value,
                 });
               }}
             />
           </InputGroup>
+
           <InputGroup className="mb-3">
             <InputGroup.Text id="basic-addon1">Room Message</InputGroup.Text>
             <Form.Control
@@ -93,25 +91,23 @@ function App() {
               aria-describedby="basic-addon1"
               placeholder="%a% stabs %s% with %a-his% %a-obj%."
               onChange={(event) => {
-                setMessages({ ...messages, roomMessage: event.target.value });
+                setMessages({ ...messages, room: event.target.value });
               }}
             />
           </InputGroup>
+
           <div className="output-container">
             <div className="output">
-              {" "}
               <span className="output-pov">Actor sees:</span>
-              {parsedMessages.actorMessage}
+              {parsed.actor}
             </div>
             <div className="output">
-              {" "}
               <span className="output-pov">Subject sees:</span>
-              {parsedMessages.subjectMessage}
+              {parsed.subject}
             </div>
             <div className="output">
-              {" "}
               <span className="output-pov">Room sees:</span>
-              {parsedMessages.roomMessage}
+              {parsed.room}
             </div>
           </div>
         </div>
