@@ -20,12 +20,12 @@ function parseMessages(actorState, subjectState, messages) {
 }
 
 function App() {
-  const [actorState, setActorState] = useState({
+  const [actor, setActor] = useState({
     name: "Leeroy Jenkins",
     gender: "Male",
     object: "short sword",
   });
-  const [subjectState, setSubjectState] = useState({
+  const [subject, setSubject] = useState({
     name: "the goblin",
     gender: "Female",
     object: "shield",
@@ -40,9 +40,11 @@ function App() {
     subjectMessage: "",
     roomMessage: " ",
   });
+
   useEffect(() => {
-    setParsedMessages(parseMessages(actorState, subjectState, messages));
-  }, [messages, actorState, subjectState]);
+    setParsedMessages(parseMessages(actor, subject, messages));
+  }, [messages, actor, subject]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -50,16 +52,13 @@ function App() {
       </header>
       <main>
         <div className="main-div">
-          <TemplateTable actorState={actorState} subjectState={subjectState} />
+          <TemplateTable actor={actor} subject={subject} />
 
           <Container className="mobs">
-            <Mob title="Actor" state={actorState} onChange={setActorState} />
-            <Mob
-              title="Subject"
-              state={subjectState}
-              onChange={setSubjectState}
-            />
+            <Mob title="Actor" state={actor} onChange={setActor} />
+            <Mob title="Subject" state={subject} onChange={setSubject} />
           </Container>
+
           <InputGroup className="mb-3">
             <InputGroup.Text id="basic-addon1">Actor's Message</InputGroup.Text>
             <Form.Control

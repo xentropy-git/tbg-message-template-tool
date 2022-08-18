@@ -7,10 +7,11 @@ import {
   possessiveName,
 } from "./parse-text";
 
-/** @typedef {{ actorState: import("./parse-text").ObjectState; subjectState: import("./parse-text").ObjectState }} Props */
+/** @typedef {import("./parse-text").ObjectState} ObjectState */
+/** @typedef {{ actor: ObjectState; subject: ObjectState }} Props */
 
 /** @type {import("react").FC<Props>} */
-const TemplateTable = ({ actorState, subjectState }) => {
+const TemplateTable = ({ actor, subject }) => {
   return (
     <Table striped bordered hover>
       <thead>
@@ -24,45 +25,45 @@ const TemplateTable = ({ actorState, subjectState }) => {
       <tbody>
         <tr>
           <td>%a%</td>
-          <td>{actorState.name}</td>
+          <td>{actor.name}</td>
           <td>%s%</td>
-          <td>{subjectState.name}</td>
+          <td>{subject.name}</td>
         </tr>
         <tr>
           <td>%as%</td>
-          <td>{possessiveName(actorState.name)}</td>
+          <td>{possessiveName(actor.name)}</td>
           <td>%ss%</td>
-          <td>{possessiveName(subjectState.name)}</td>
+          <td>{possessiveName(subject.name)}</td>
         </tr>
         <tr>
           <td>%a-he%</td>
-          <td>{genderSubject(actorState.gender)}</td>
+          <td>{genderSubject(actor.gender)}</td>
           <td>%s-he%</td>
-          <td>{genderSubject(subjectState.gender)}</td>
+          <td>{genderSubject(subject.gender)}</td>
         </tr>
         <tr>
           <td>%a-him%</td>
-          <td>{genderObject(actorState.gender)}</td>
+          <td>{genderObject(actor.gender)}</td>
           <td>%s-him%</td>
-          <td>{genderObject(subjectState.gender)}</td>
+          <td>{genderObject(subject.gender)}</td>
         </tr>
         <tr>
           <td>%a-her%</td>
-          <td>{genderPossessivePronoun(actorState.gender)}</td>
+          <td>{genderPossessivePronoun(actor.gender)}</td>
           <td>%s-her%</td>
-          <td>{genderPossessivePronoun(subjectState.gender)}</td>
+          <td>{genderPossessivePronoun(subject.gender)}</td>
         </tr>
         <tr>
           <td>%a-himself%</td>
-          <td>{genderReflexive(actorState.gender)}</td>
+          <td>{genderReflexive(actor.gender)}</td>
           <td>%s-himself%</td>
-          <td>{genderReflexive(subjectState.gender)}</td>
+          <td>{genderReflexive(subject.gender)}</td>
         </tr>
         <tr>
           <td>%a-obj%</td>
-          <td>{actorState.object}</td>
+          <td>{actor.object}</td>
           <td>%s-obj%</td>
-          <td>{subjectState.object}</td>
+          <td>{subject.object}</td>
         </tr>
       </tbody>
     </Table>
