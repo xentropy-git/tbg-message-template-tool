@@ -53,41 +53,11 @@ function App() {
           <TemplateTable actorState={actorState} subjectState={subjectState} />
 
           <Container className="mobs">
-            <Mob
-              title="Actor"
-              nameValue={actorState.name}
-              objectValue={actorState.object}
-              genderValue={actorState.gender}
-              onNameChange={(event) => {
-                setActorState({ ...actorState, name: event.target.value });
-              }}
-              onGenderChange={(event) => {
-                setActorState({ ...actorState, gender: event.target.value });
-              }}
-              onObjectChange={(event) => {
-                setActorState({ ...actorState, object: event.target.value });
-              }}
-            />
+            <Mob title="Actor" state={actorState} onChange={setActorState} />
             <Mob
               title="Subject"
-              nameValue={subjectState.name}
-              objectValue={subjectState.object}
-              genderValue={subjectState.gender}
-              onNameChange={(event) => {
-                setSubjectState({ ...subjectState, name: event.target.value });
-              }}
-              onGenderChange={(event) => {
-                setSubjectState({
-                  ...subjectState,
-                  gender: event.target.value,
-                });
-              }}
-              onObjectChange={(event) => {
-                setSubjectState({
-                  ...subjectState,
-                  object: event.target.value,
-                });
-              }}
+              state={subjectState}
+              onChange={setSubjectState}
             />
           </Container>
           <InputGroup className="mb-3">
