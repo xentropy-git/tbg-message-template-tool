@@ -5,7 +5,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import "./App.css";
 import Mob from "./Mob";
 import { parseText } from "./parse-text";
-import TemplateTable from "./TemplateTable";
+import Table from "./Table";
 
 function parseMessages(actorState, subjectState, messages) {
   return {
@@ -52,7 +52,7 @@ function App() {
       </header>
       <main>
         <div className="main-div">
-          <TemplateTable actor={actor} subject={subject} />
+          <Table actor={actor} subject={subject} />
 
           <Container className="mobs">
             <Mob title="Actor" state={actor} onChange={setActor} />
