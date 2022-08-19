@@ -104,6 +104,7 @@ export function genderReflexive(gender) {
  * @returns {string} formatted message
  */
 export function parseText(actorState, subjectState, message) {
+  if (message.length === 0) return "";
   const matchText = {
     "%a%": actorState.name,
     "%as%": possessiveName(actorState.name),

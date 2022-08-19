@@ -48,9 +48,9 @@ const TemplateTable = ({ actor, subject }) => {
           <td>{genderObject(subject.gender)}</td>
         </tr>
         <tr>
-          <td>%a-her%</td>
+          <td>%a-hers%</td>
           <td>{genderPossessivePronoun(actor.gender)}</td>
-          <td>%s-her%</td>
+          <td>%s-hers%</td>
           <td>{genderPossessivePronoun(subject.gender)}</td>
         </tr>
         <tr>

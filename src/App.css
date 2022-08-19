@@ -15,6 +15,8 @@
 
 .App-header {
   background-color: #282c34;
+  width: 100vw;
+  margin-bottom: 50px;
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -35,7 +37,7 @@
 }
 main {
   width: 100vw;
-  margin-top: 50px;
+
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -79,22 +79,5 @@ function App() {
     </>
   );
 }
-/*
-"%a%" : actorState.name,
-    "%as%" : possessiveName(actorState.name),
-    "%a-he%" : genderSubject(actorState.gender),
-    "%a-him%" : genderObject(actorState.gender),
-    "%a-his%" : genderPossessive(actorState.gender),
-    "%a-hers%" : genderPossessivePronoun(actorState.gender),
-    "%a-himself%" : genderReflexive(actorState.gender),
-    "%a-obj%" : actorState.object,
-    "%s%" : subjectState.name,
-    "%ss%" : possessiveName(subjectState.name),
-    "%s-he%" : genderSubject(subjectState.gender),
-    "%s-him%" : genderObject(subjectState.gender),
-    "%s-his%" : genderPossessive(subjectState.gender),
-    "%s-hers%" : genderPossessivePronoun(subjectState.gender),
-    "%s-himself%" : genderReflexive(subjectState.gender),
-    "%s-obj%" : subjectState.object
-    */
+
 export default App;
