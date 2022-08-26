@@ -96,7 +96,6 @@ export function genderReflexive(gender) {
 }
 
 /** @typedef {{ name: string; gender: string; object: string}} ObjectState */
-
 /**
  * @param {ObjectState} actorState
  * @param {ObjectState} subjectState
@@ -104,7 +103,7 @@ export function genderReflexive(gender) {
  * @returns {string} formatted message
  */
 export function parseText(actorState, subjectState, message) {
-  if (message.length === 0) return "";
+  if (message.length <= 1) return "";
   const matchText = {
     "%a%": actorState.name,
     "%as%": possessiveName(actorState.name),

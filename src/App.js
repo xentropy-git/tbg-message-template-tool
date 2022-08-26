@@ -61,7 +61,7 @@ function App() {
 
         <Messages messages={messages} onChange={setMessages} />
       </Container>
-
+      <h2>Preview</h2>
       <Container className="output-container">
         <div className="output">
           <span className="output-pov">Actor sees:</span>
@@ -74,6 +74,12 @@ function App() {
         <div className="output">
           <span className="output-pov">Room sees:</span>
           {parsed.room}
+        </div>
+      </Container>
+      <h2>JSON output</h2>
+      <Container className="output-container">
+        <div className="json-output">
+          story_text: {JSON.stringify(messages, null, 2)},
         </div>
       </Container>
     </>

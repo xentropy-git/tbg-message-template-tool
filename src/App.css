@@ -73,3 +73,15 @@ main {
   font-weight: bold;
   text-shadow: 2px 2px 3px #000000;
 }
+
+.json-output {
+  color: rgb(9, 202, 9);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20pt;
+  text-align: left;
+  padding: 10px;
+  text-shadow: 1px 1px #000000;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+}
